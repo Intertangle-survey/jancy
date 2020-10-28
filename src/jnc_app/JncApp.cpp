@@ -13,6 +13,8 @@
 #include "JncApp.h"
 #include "CmdLine.h"
 
+#include <axl_sys_TlsSlot.h>
+
 //..............................................................................
 
 // {39B98823-0E9F-4C72-BC77-A254E855925F}
@@ -129,10 +131,52 @@ JncApp::parse()
 	return m_module->parseImports();
 }
 
+struct JmpBuf
+{
+	jmp_buf m_jmpBuf;
+};
+
+void test_foo_3()
+{
+	printf("test_foo_3 -- throwing!\n");
+
+	jnc_Tls* tls = jnc_getCurrentThreadTls();
+	jnc_TlsVariableTable* variableTable = (jnc_TlsVariableTable*)(tls + 1);
+	printf("  tls: %p\n", tls);
+//	jnc_longJmp(variableTable->m_sjljFrame->m_jmpBuf, -1);
+//	printf("(1) shouldn't be here\n");
+
+	jnc_dynamicThrow();
+
+	printf("(2) shouldn't be here\n");
+	JmpBuf* jmpBuf = sys::getTlsPtrSlotValue<JmpBuf>();
+	jnc_longJmp(jmpBuf->m_jmpBuf, -1);
+}
+
+void test_foo_2()
+{
+	printf("test_foo_2\n");
+	test_foo_3();
+}
+
+void test_foo_1()
+{
+	printf("test_foo_1\n");
+	test_foo_2();
+}
+
+void test_foo_0()
+{
+	printf("test_foo_0\n");
+	test_foo_1();
+}
+
 bool
 JncApp::runFunction(int* returnValue)
 {
 	bool result;
+
+	int j;
 
 	jnc::FindModuleItemResult findResult = m_module->getGlobalNamespace()->getNamespace()->findItem(m_cmdLine->m_functionName);
 	ASSERT(findResult.m_item && findResult.m_item->getItemKind() == jnc::ModuleItemKind_Function);
@@ -153,6 +197,31 @@ JncApp::runFunction(int* returnValue)
 	if (!result)
 		return false;
 
+	JNC_BEGIN_CALL_SITE(m_runtime)
+
+	printf("ok, now!\n");
+
+	sys::setTlsPtrSlotValue<JmpBuf>((JmpBuf*)__jncSjljFrame.m_jmpBuf);
+	test_foo_0();
+
+	JNC_CALL_SITE_CATCH()
+
+	printf("JNC_CALL_SITE_CATCH()\n");
+
+	JNC_END_CALL_SITE()
+
+	printf("+ [3] JncApp::runFunction:OutputDebugStringA\n");
+	OutputDebugStringA("OutputDebugStringA\n");
+	printf("- [3] JncApp::runFunction:OutputDebugStringA\n");
+
+	static void* _esp;
+	_asm
+	{
+		mov _esp, esp
+	}
+
+	printf("JncApp::runFunction: +ESP: %p\n", _esp);
+
 	if (returnTypeKind == jnc::TypeKind_Int)
 	{
 		result = jnc::callFunction(m_runtime, function, returnValue);
@@ -162,6 +231,17 @@ JncApp::runFunction(int* returnValue)
 		result = jnc::callVoidFunction(m_runtime, function);
 		*returnValue = 0;
 	}
+
+	_asm
+	{
+		mov _esp, esp
+	}
+
+	printf("JncApp::runFunction: -ESP: %p\n", _esp);
+
+	printf("+ JncApp::runFunction:OutputDebugStringA\n");
+	OutputDebugStringA("OutputDebugStringA\n");
+	printf("- JncApp::runFunction:OutputDebugStringA\n");
 
 	if (!result)
 		return false;

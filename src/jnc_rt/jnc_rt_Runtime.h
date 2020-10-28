@@ -116,5 +116,8 @@ getCurrentThreadRuntime()
 
 //..............................................................................
 
+void
+jnc_Runtime_dynamicThrow();
+
 } // namespace rt
 } // namespace jnc

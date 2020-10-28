@@ -2,10 +2,13 @@
 
 destruct()
 {
+	printf("destruct()\n");
 	assert(false);
 }
 
 int main()
 {
-	return 0;
+	printf("main()\n");
+	assert(false);
+	return -1;
 }

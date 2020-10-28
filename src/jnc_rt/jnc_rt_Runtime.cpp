@@ -239,11 +239,14 @@ void
 Runtime::dynamicThrow()
 {
 	Tls* tls = rt::getCurrentThreadTls();
+	printf("Runtime::dynamicThrow() tls: %p\n", tls);
+
 	ASSERT(tls);
 
 	TlsVariableTable* tlsVariableTable = (TlsVariableTable*)(tls + 1);
 	if (tlsVariableTable->m_sjljFrame)
 	{
+		printf("last error: %s\n", err::getLastErrorDescription().sz());
 		jnc_longJmp(tlsVariableTable->m_sjljFrame->m_jmpBuf, -1);
 	}
 	else

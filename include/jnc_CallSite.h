@@ -32,7 +32,7 @@
 #define JNC_BEGIN_CALL_SITE_IMPL(runtime) \
 	jnc_Runtime* __jncRuntime = (runtime); \
 	jnc_CallSite __jncCallSite; \
-	jnc_SjljFrame __jncSjljFrame; \
+	static jnc_SjljFrame __jncSjljFrame; \
 	jnc_SjljFrame* __jncSjljPrevFrame; \
 	int __jncSjljBranch; \
 	JNC_ASSERT(runtime); \

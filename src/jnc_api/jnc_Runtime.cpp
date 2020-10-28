@@ -425,11 +425,40 @@ jnc_getCurrentThreadTls()
 }
 
 JNC_EXTERN_C
+void
+jnc_Runtime_dynamicThrow()
+{
+	printf("JNC_EXTERN_C jnc_Runtime_dynamicThrow\n");
+
+	jnc::Tls* tls = jnc::rt::getCurrentThreadTls();
+	printf("  tls: %p\n", tls);
+
+	ASSERT(tls);
+
+	jnc::TlsVariableTable* tlsVariableTable = (jnc::TlsVariableTable*)(tls + 1);
+	if (tlsVariableTable->m_sjljFrame)
+	{
+		printf("last error: %s\n", err::getLastErrorDescription().sz());
+		jnc_longJmp(tlsVariableTable->m_sjljFrame->m_jmpBuf, -1);
+	}
+	else
+	{
+		jnc::SjljFrame* frame = sys::getTlsPtrSlotValue<jnc::SjljFrame> ();
+		printf("-- WARNING: jump to external SJLJ frame: %p\n", frame);
+
+		ASSERT(frame);
+		jnc_longJmp(frame->m_jmpBuf, -1);
+	}
+
+	ASSERT(false);
+}
+
+JNC_EXTERN_C
 JNC_EXPORT_O
 void
 jnc_dynamicThrow()
 {
-	jnc::rt::Runtime::dynamicThrow();
+	jnc_Runtime_dynamicThrow();
 }
 
 static
@@ -550,6 +579,8 @@ jnc_strengthenClassPtr(jnc_IfaceHdr* iface)
 #define PCOFF  0
 #define JMPBUF 4
 
+#if (0)
+
 #ifdef xor
 #	undef xor
 #endif
@@ -601,6 +632,8 @@ jnc_longJmp(
 		jmp edx
 	}
 }
+
+#endif
 
 #	elif (_JNC_CPU_AMD64)
 #		undef jnc_setJmp

@@ -10,7 +10,7 @@
 #...............................................................................
 
 image:
-    - Visual Studio 2015
+#   - Visual Studio 2015
     - Visual Studio 2017
 
 init:
@@ -20,29 +20,29 @@ clone_folder:  c:\projects\jancy
 shallow_clone: true
 
 platform:
-    - x64
+#   - x64
     - x86
 
 configuration:
     - Debug
-    - Release
+#   - Release
 
 environment:
     matrix:
-        -   LLVM_VERSION: 3.4.2
-            TOOLCHAIN:    msvc10
+#       -   LLVM_VERSION: 3.4.2
+#           TOOLCHAIN:    msvc10
 
         -   LLVM_VERSION: 3.4.2
             TOOLCHAIN:    msvc15
 
-        -   LLVM_VERSION: 3.9.1
-            TOOLCHAIN:    msvc12
+#       -   LLVM_VERSION: 3.9.1
+#           TOOLCHAIN:    msvc12
 
-        -   LLVM_VERSION: 7.1.0
-            TOOLCHAIN:    msvc15
+#       -   LLVM_VERSION: 7.1.0
+#           TOOLCHAIN:    msvc15
 
-        -   LLVM_VERSION: 8.0.0
-            TOOLCHAIN:    msvc15
+#       -   LLVM_VERSION: 8.0.0
+#           TOOLCHAIN:    msvc15
 
 matrix:
     fast_finish: false

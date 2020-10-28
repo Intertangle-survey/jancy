@@ -37,6 +37,18 @@ echo set (RAGEL_EXE %DOWNLOAD_DIR_CMAKE%/ragel.exe) >> paths.cmake
 
 :: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
+:: Nasm
+
+mkdir %DOWNLOAD_DIR%\nasm
+appveyor DownloadFile %NASM_DOWNLOAD_URL% -FileName %DOWNLOAD_DIR%\nasm.zip
+7z x -y %DOWNLOAD_DIR%\nasm.zip -o%DOWNLOAD_DIR%
+
+set PATH=%DOWNLOAD_DIR%\nasm-%NASM_VERSION%;%PATH%
+
+nasm -v
+
+:: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
 :: Lua
 
 mkdir %DOWNLOAD_DIR%\lua

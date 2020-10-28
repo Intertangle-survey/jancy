@@ -166,8 +166,13 @@ WINAPI
 ExceptionMgr::vectoredExceptionHandler(EXCEPTION_POINTERS* exceptionPointers)
 {
 	LONG status = exceptionPointers->ExceptionRecord->ExceptionCode;
+	printf("ExceptionMgr::vectoredExceptionHandler(0x%08x)\n", status);
+
 	if (status >= 0) // we only care about NT error conditions
+	{
+		printf("returning EXCEPTION_CONTINUE_SEARCH\n");
 		return EXCEPTION_CONTINUE_SEARCH;
+	}
 
 	Tls* tls = getCurrentThreadTls();
 	if (!tls)

@@ -460,6 +460,9 @@ assertionFailure(
 
 	err::setError(string);
 	string.release(); // release before throwing (sl::String::~String will not be called)
+
+	printf("assertionFailure - 5: %s\n", err::getLastErrorDescription().sz());
+
 	dynamicThrow();
 }
 

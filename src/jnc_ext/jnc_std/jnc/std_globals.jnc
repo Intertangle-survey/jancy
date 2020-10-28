@@ -442,6 +442,12 @@ intptr_t cdecl printf(
 	...
 	);
 
+/**
+	Flushes the standard output stream.
+*/
+
+void flush();
+
 //! @}
 
 namespace std {

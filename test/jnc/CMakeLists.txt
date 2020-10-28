@@ -45,7 +45,7 @@ if(${BUILD_JNC_APP})
 	add_jancy_tests(
 		NAME_PREFIX "jnc-test-"
 		WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-		TESTS ${TEST_JNC_LIST}
+		TESTS test138.jnc
 		)
 endif()
 

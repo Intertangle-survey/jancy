@@ -1859,6 +1859,15 @@ GcHeap::destructThreadFunc()
 			bool result;
 			JNC_BEGIN_CALL_SITE(m_runtime);
 
+			static void* _esp;
+			_asm
+			{
+				mov _esp, esp
+			}
+
+			Tls* tls = getCurrentThreadTls();
+			TlsVariableTable* tlsVariableTable = (TlsVariableTable*)(tls + 1);
+
 			if (!destructor->m_iface)
 			{
 				callFunctionImpl_u<void>((void*)destructor->m_staticDestructFunc);
@@ -1871,13 +1880,21 @@ GcHeap::destructThreadFunc()
 
 			JNC_END_CALL_SITE_EX(&result)
 
+			printf("+ destructThreadFunc: OutputDebugStringA\n");
+			OutputDebugStringA("OutputDebugStringA\n");
+			printf("- destructThreadFunc: OutputDebugStringA\n");
+
 			if (!result)
 				TRACE(
 					"-- WARNING: runtime error in a static destructor: %s\n",
 					err::getLastErrorDescription().sz()
 					);
 
+			printf("+ AXL_MEM_DELETE(destructor)\n");
+
 			AXL_MEM_DELETE(destructor);
+
+			printf("- AXL_MEM_DELETE(destructor)\n");
 			waitIdleAndLock();
 		}
 

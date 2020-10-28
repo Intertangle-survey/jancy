@@ -69,6 +69,8 @@ main(
 	setvbuf(stdout, NULL, _IOLBF, 1024);
 #endif
 
+	setvbuf(stdout, NULL, _IONBF, 0);
+
 	bool result;
 
 	g::getModule()->setTag("jnc_app");

@@ -100,6 +100,9 @@ set LUA_DOWNLOAD_URL=https://sourceforge.net/projects/luabinaries/files/%LUA_VER
 
 set RAGEL_DOWNLOAD_URL=https://github.com/eloraiby/ragel-windows/raw/master/ragel.exe
 
+set NASM_VERSION=2.14.02
+set NASM_DOWNLOAD_URL=https://github.com/joedrago/nasm_mirror/raw/master/nasm-%NASM_VERSION%-win64.zip
+
 set CMAKE_CONFIGURE_FLAGS=-G "%CMAKE_GENERATOR%%CMAKE_GENERATOR_SUFFIX%"
 
 set CMAKE_BUILD_FLAGS= ^

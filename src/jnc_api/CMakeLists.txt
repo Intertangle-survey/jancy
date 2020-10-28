@@ -136,12 +136,18 @@ include_directories(
 	${JANCY_SRC_DIR}/jnc_ext/jnc_std
 	)
 
+add_custom_command(
+	OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/jnc_Sjlj_x86.obj
+	COMMAND nasm -fwin32 ${CMAKE_CURRENT_LIST_DIR}/jnc_Sjlj_x86.asm -o${CMAKE_CURRENT_BINARY_DIR}/jnc_Sjlj_x86.obj
+	)
+
 add_library(
 	jnc_api_core
 	${PCH_H_LIST}
 	${PCH_STATIC_CPP}
 	${LIB_H_LIST}
 	${LIB_STATIC_CPP_LIST}
+	${CMAKE_CURRENT_BINARY_DIR}/jnc_Sjlj_x86.obj
 	)
 
 axl_set_pch(
@@ -184,6 +190,7 @@ add_library(
 	${PCH_DYNAMIC_CPP}
 	${LIB_H_LIST}
 	${LIB_DYNAMIC_CPP_LIST}
+	${CMAKE_CURRENT_BINARY_DIR}/jnc_Sjlj_x86.obj
 	)
 
 target_compile_definitions(
