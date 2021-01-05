@@ -1,0 +1,26 @@
+.. index:: pair: struct; jnc_CallSite
+.. _doxid-structjnc___call_site:
+
+struct jnc_CallSite
+===================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	
+	struct jnc_CallSite {
+		// fields
+	
+		size_t :target:`m_initializeLevel<doxid-structjnc___call_site_1a8408f740a673ede4b76719db2bdd3f29>`;
+		size_t :target:`m_waitRegionLevel<doxid-structjnc___call_site_1a4a4bd17f110d972c3d81954ac1602566>`;
+		size_t :target:`m_noCollectRegionLevel<doxid-structjnc___call_site_1a09765f38685ae3de41a5b0861ea4bf1b>`;
+		:ref:`jnc_GcShadowStackFrame<doxid-structjnc___gc_shadow_stack_frame>` :target:`m_gcShadowStackDynamicFrame<doxid-structjnc___call_site_1ae5831182232158e4ca2a504ba05bd409>`;
+		:ref:`jnc_GcShadowStackFrameMapBuffer<doxid-structjnc___gc_shadow_stack_frame_map_buffer>` :target:`m_gcShadowStackDynamicFrameMap<doxid-structjnc___call_site_1a50cac077442e8e9970c37cc1bcb21ffb>`;
+		intptr_t :target:`m_result<doxid-structjnc___call_site_1a98c2d32db15f45c2790223d7893f78df>`;
+	};

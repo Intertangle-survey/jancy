@@ -1,0 +1,34 @@
+.. include:: def.rst
+.. index:: pair: struct; io.UsbDeviceDesc
+.. _doxid-type_io_usbdevicedesc:
+
+struct io.UsbDeviceDesc
+=======================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	struct UsbDeviceDesc
+	{
+		// fields
+	
+		:ref:`io.UsbConfigurationDesc<doxid-type_io_usbconfigurationdesc>` const* :target:`m_configurationTable<doxid-struct_member_io_usbdevicedesc_m_configurationtable>`;
+		:ref:`size_t<doxid-typedef_size_t>` :target:`m_configurationCount<doxid-struct_member_io_usbdevicedesc_m_configurationcount>`;
+		:ref:`uint16_t<doxid-typedef_uint16_t>` :target:`m_usbVersion<doxid-struct_member_io_usbdevicedesc_m_usbversion>`;
+		:ref:`uint16_t<doxid-typedef_uint16_t>` :target:`m_deviceVersion<doxid-struct_member_io_usbdevicedesc_m_deviceversion>`;
+		:ref:`uint16_t<doxid-typedef_uint16_t>` :target:`m_vendorId<doxid-struct_member_io_usbdevicedesc_m_vendorid>`;
+		:ref:`uint16_t<doxid-typedef_uint16_t>` :target:`m_productId<doxid-struct_member_io_usbdevicedesc_m_productid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_vendorStringId<doxid-struct_member_io_usbdevicedesc_m_vendorstringid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_productStringId<doxid-struct_member_io_usbdevicedesc_m_productstringid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_serialStringId<doxid-struct_member_io_usbdevicedesc_m_serialstringid>`;
+		:ref:`io.UsbClass<doxid-type_io_usbclass>` :target:`m_class<doxid-struct_member_io_usbdevicedesc_m_class>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_subClass<doxid-struct_member_io_usbdevicedesc_m_subclass>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_protocol<doxid-struct_member_io_usbdevicedesc_m_protocol>`;
+	};

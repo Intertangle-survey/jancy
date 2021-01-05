@@ -1,0 +1,21 @@
+.. include:: def.rst
+.. index:: pair: enum; SerialOptions
+.. _doxid-type_io_serialoptions:
+
+bitflag enum io.SerialOptions
+=============================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum SerialOptions
+	{
+	    :target:`KeepReadBlockSize<doxid-enum_member_io_serialoptions_keepreadblocksize>`,
+	    :target:`KeepWriteBlockSize<doxid-enum_member_io_serialoptions_keepwriteblocksize>`,
+	    :target:`WinReadCheckComstat<doxid-enum_member_io_serialoptions_winreadcheckcomstat>`,
+	    :target:`WinReadWaitFirstChar<doxid-enum_member_io_serialoptions_winreadwaitfirstchar>`,
+	};
+

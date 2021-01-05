@@ -1,0 +1,19 @@
+.. include:: def.rst
+.. index:: pair: enum; ChildProcessOptions
+.. _doxid-type_io_childprocessoptions:
+
+bitflag enum io.ChildProcessOptions
+===================================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum ChildProcessOptions
+	{
+	    :target:`KeepReadBlockSize<doxid-enum_member_io_childprocessoptions_keepreadblocksize>`,
+	    :target:`KeepWriteBlockSize<doxid-enum_member_io_childprocessoptions_keepwriteblocksize>`,
+	};
+

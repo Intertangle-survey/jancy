@@ -1,0 +1,24 @@
+.. index:: pair: struct; jnc_BitFieldTypeFuncTable
+.. _doxid-structjnc___bit_field_type_func_table:
+
+struct jnc_BitFieldTypeFuncTable
+================================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	
+	struct jnc_BitFieldTypeFuncTable {
+		// fields
+	
+		size_t :target:`m_size<doxid-structjnc___bit_field_type_func_table_1a81ca69fb7d726b6f6d979f27683cd90c>`;
+		jnc_BitFieldType_GetBaseTypeFunc* :target:`m_getBaseTypeFunc<doxid-structjnc___bit_field_type_func_table_1a16c11d05d2441e6e49db31d08f77ba9a>`;
+		jnc_BitFieldType_GetBitOffsetFunc* :target:`m_getBitOffsetFunc<doxid-structjnc___bit_field_type_func_table_1a25aaa66e9f40c9d17842bbf3224544ce>`;
+		jnc_BitFieldType_GetBitCountFunc* :target:`m_getBitCountFunc<doxid-structjnc___bit_field_type_func_table_1aceac5e7afa39fdabd7fb4230cc29e3b2>`;
+	};

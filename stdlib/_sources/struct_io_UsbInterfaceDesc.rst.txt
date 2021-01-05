@@ -1,0 +1,31 @@
+.. include:: def.rst
+.. index:: pair: struct; io.UsbInterfaceDesc
+.. _doxid-type_io_usbinterfacedesc:
+
+struct io.UsbInterfaceDesc
+==========================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	struct UsbInterfaceDesc
+	{
+		// fields
+	
+		io.UsbInterfaceDesc const* :target:`m_nextAltSettingInterface<doxid-struct_member_io_usbinterfacedesc_m_nextaltsettinginterface>`;
+		:ref:`io.UsbEndpointDesc<doxid-type_io_usbendpointdesc>` const* :target:`m_endpointTable<doxid-struct_member_io_usbinterfacedesc_m_endpointtable>`;
+		:ref:`size_t<doxid-typedef_size_t>` :target:`m_endpointCount<doxid-struct_member_io_usbinterfacedesc_m_endpointcount>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_interfaceId<doxid-struct_member_io_usbinterfacedesc_m_interfaceid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_altSettingId<doxid-struct_member_io_usbinterfacedesc_m_altsettingid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_descriptionStringId<doxid-struct_member_io_usbinterfacedesc_m_descriptionstringid>`;
+		:ref:`io.UsbClass<doxid-type_io_usbclass>` :target:`m_class<doxid-struct_member_io_usbinterfacedesc_m_class>`;
+		:ref:`io.UsbSpeed<doxid-type_io_usbspeed>` :target:`m_subClass<doxid-struct_member_io_usbinterfacedesc_m_subclass>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_protocol<doxid-struct_member_io_usbinterfacedesc_m_protocol>`;
+	};

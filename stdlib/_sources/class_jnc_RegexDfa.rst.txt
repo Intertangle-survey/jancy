@@ -1,0 +1,46 @@
+.. include:: def.rst
+.. index:: pair: class; jnc.RegexDfa
+.. _doxid-type_jnc_regexdfa:
+
+class jnc.RegexDfa
+==================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	class RegexDfa
+	{
+		// construction
+	
+		:target:`construct<doxid-function_jnc_regexdfa_construct>`();
+		:target:`destruct<doxid-function_jnc_regexdfa_destruct>`();
+
+		// methods
+	
+		void :target:`clear<doxid-function_jnc_regexdfa_clear>`();
+	
+		bool errorcode :target:`compile<doxid-function_jnc_regexdfa_compile>`(
+			char const* regexString,
+			:ref:`size_t<doxid-typedef_size_t>` length = - 1
+			);
+	
+		bool errorcode :target:`incrementalCompile<doxid-function_jnc_regexdfa_incrementalcompile>`(
+			char const* regexString,
+			:ref:`size_t<doxid-typedef_size_t>` length = - 1
+			);
+	
+		bool errorcode :target:`finalize<doxid-function_jnc_regexdfa_finalize>`();
+	
+		:ref:`size_t<doxid-typedef_size_t>` errorcode :target:`match<doxid-function_jnc_regexdfa_match>`(
+			:ref:`jnc.RegexState<doxid-type_jnc_regexstate>`* state,
+			char const* p,
+			:ref:`size_t<doxid-typedef_size_t>` length = - 1
+			) const;
+	};

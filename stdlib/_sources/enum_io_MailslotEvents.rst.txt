@@ -1,0 +1,75 @@
+.. include:: def.rst
+.. index:: pair: enum; MailslotEvents
+.. _doxid-type_io_mailslotevents:
+
+bitflag enum io.MailslotEvents
+==============================
+
+Overview
+~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.Mailslot` object. The set of *active* events is accessible
+via `io.Mailslot.m_activeEvents`. :ref:`More...<details-type_io_mailslotevents>`
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum MailslotEvents
+	{
+	    :ref:`IoError<doxid-enum_member_io_mailslotevents_ioerror>`,
+	    :ref:`IncomingData<doxid-enum_member_io_mailslotevents_incomingdata>`,
+	    :ref:`ReadBufferFull<doxid-enum_member_io_mailslotevents_readbufferfull>`,
+	};
+
+.. _details-type_io_mailslotevents:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.Mailslot` object. The set of *active* events is accessible
+via `io.Mailslot.m_activeEvents`.
+
+
+
+.. rubric:: See also:
+
+`io.Mailslot`
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; IoError
+.. _doxid-enum_member_io_mailslotevents_ioerror:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IoError
+
+An IO error occured on the mailslot; detailed information about the
+error is available at `io.Mailslot.m_ioError`.
+
+.. index:: pair: enumvalue; IncomingData
+.. _doxid-enum_member_io_mailslotevents_incomingdata:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingData
+
+More data is available on the mailslot; this data could be fetched with
+`io.Mailslot.read` method.
+
+.. index:: pair: enumvalue; ReadBufferFull
+.. _doxid-enum_member_io_mailslotevents_readbufferfull:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	ReadBufferFull
+
+Mailslot receive buffer is full.
+

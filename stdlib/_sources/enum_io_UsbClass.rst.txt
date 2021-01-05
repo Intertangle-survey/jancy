@@ -1,0 +1,35 @@
+.. include:: def.rst
+.. index:: pair: enum; UsbClass
+.. _doxid-type_io_usbclass:
+
+enum io.UsbClass
+================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	enum UsbClass
+	{
+	    :target:`PerInterface<doxid-enum_member_io_usbclass_perinterface>`       = 0,
+	    :target:`Audio<doxid-enum_member_io_usbclass_audio>`              = 1,
+	    :target:`Comm<doxid-enum_member_io_usbclass_comm>`               = 2,
+	    :target:`Hid<doxid-enum_member_io_usbclass_hid>`                = 3,
+	    :target:`Physical<doxid-enum_member_io_usbclass_physical>`           = 5,
+	    :target:`Ptp<doxid-enum_member_io_usbclass_ptp>`                = 6,
+	    :target:`Printer<doxid-enum_member_io_usbclass_printer>`            = 7,
+	    :target:`MassStorage<doxid-enum_member_io_usbclass_massstorage>`        = 8,
+	    :target:`Hub<doxid-enum_member_io_usbclass_hub>`                = 9,
+	    :target:`Data<doxid-enum_member_io_usbclass_data>`               = 10,
+	    :target:`SmartCard<doxid-enum_member_io_usbclass_smartcard>`          = 0x0b,
+	    :target:`ContentSecurity<doxid-enum_member_io_usbclass_contentsecurity>`    = 0x0d,
+	    :target:`Video<doxid-enum_member_io_usbclass_video>`              = 0x0e,
+	    :target:`PersonalHealthcare<doxid-enum_member_io_usbclass_personalhealthcare>` = 0x0f,
+	    :target:`DiagnosticDevice<doxid-enum_member_io_usbclass_diagnosticdevice>`   = 0xdc,
+	    :target:`Wireless<doxid-enum_member_io_usbclass_wireless>`           = 0xe0,
+	    :target:`Application<doxid-enum_member_io_usbclass_application>`        = 0xfe,
+	    :target:`VendorSpec<doxid-enum_member_io_usbclass_vendorspec>`         = 0xff,
+	};
+

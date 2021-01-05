@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>bitflag enum io.SocketEvents &mdash; Jancy Standard Library Reference</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/doxyrest-pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/doxyrest-sphinx_rtd_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="bitflag enum io.SocketOptions" href="enum_io_SocketOptions.html" />
+    <link rel="prev" title="enum io.Protocol" href="enum_io_Protocol.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jancy Standard Library Reference
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="group_c-typedefs.html">Standard Typedefs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_rtl.html">RTL (Runtime Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_crt.html">C Runtime Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_std.html">General Purpose Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_sys.html">System Facilities</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="group_io.html">IO (Input/Output) Library</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="group_io-file.html">Generic File IO</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="group_io-socket.html">Socket Communications</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="enum_io_AddressFamily.html">enum io.AddressFamily</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_io_HostNameResolverEvents.html">bitflag enum io.HostNameResolverEvents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enum_io_Protocol.html">enum io.Protocol</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">bitflag enum io.SocketEvents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detailed-documentation">Detailed Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="enum_io_SocketOptions.html">bitflag enum io.SocketOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="struct_io_SocketAddress_ip4.html">struct io.SocketAddress_ip4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="struct_io_SocketAddress_ip6.html">struct io.SocketAddress_ip6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="union_io_Address_ip4.html">union io.Address_ip4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="union_io_Address_ip6.html">union io.Address_ip6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="union_io_SocketAddress.html">union io.SocketAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class_io_HostNameResolver.html">class io.HostNameResolver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="class_io_Socket.html">class io.Socket</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="group_io-serial.html">Serial Communications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_io-network-adapter.html">Network Adapter Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_io-ssh.html">SSH Communications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_io-pcap.html">Pcap (Packet Capturing Library)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_io-usb.html">USB Communications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_io-devmon.html">Device Monitoring</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="disposable.html">‘disposable’ Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorcode.html">‘errorcode’ Functions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="global.html">Global Namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jancy Standard Library Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="group_io.html">IO (Input/Output) Library</a> &raquo;</li>
+        
+          <li><a href="group_io-socket.html">Socket Communications</a> &raquo;</li>
+        
+      <li>bitflag enum io.SocketEvents</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bitflag-enum-io-socketevents">
+<span id="doxid-type-io-socketevents"></span><span id="index-0"></span><h1>bitflag enum io.SocketEvents</h1>
+<div class="section" id="overview">
+<h2>Overview</h2>
+<p>This enumeration contains codes of all possible events that might
+happen on <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-type-io-socket"><span class="std std-ref"><span class="pre">io.Socket</span></span></a></code> object. The set of <em>active</em> events is accessible
+via <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-struct-member-io-socket-m-activeevents"><span class="std std-ref"><span class="pre">io.Socket.m_activeEvents</span></span></a></code>. <a class="reference internal" href="#details-type-io-socketevents"><span class="std std-ref">More…</span></a></p>
+<pre class="highlight doxyrest-overview-code-block literal-block">
+<span></span><span class="k">bitflag</span> <span class="k">enum</span> <span class="n">SocketEvents</span>
+<span class="p">{</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-ioerror"><span class="std std-ref">IoError</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-incomingdata"><span class="std std-ref">IncomingData</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-readbufferfull"><span class="std std-ref">ReadBufferFull</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-writebufferempty"><span class="std std-ref">WriteBufferEmpty</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-writebufferready"><span class="std std-ref">WriteBufferReady</span></a><span></span>   <span class="o">=</span> <span class="n">WriteBufferEmpty</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-incomingconnection"><span class="std std-ref">IncomingConnection</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-connected"><span class="std std-ref">Connected</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-disconnected"><span class="std std-ref">Disconnected</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-enum-member-io-socketevents-reset"><span class="std std-ref">Reset</span></a><span></span><span class="p">,</span>
+<span class="p">};</span>
+</pre>
+</div>
+<div class="section" id="detailed-documentation">
+<span id="details-type-io-socketevents"></span><h2>Detailed Documentation</h2>
+<p>This enumeration contains codes of all possible events that might
+happen on <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-type-io-socket"><span class="std std-ref"><span class="pre">io.Socket</span></span></a></code> object. The set of <em>active</em> events is accessible
+via <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-struct-member-io-socket-m-activeevents"><span class="std std-ref"><span class="pre">io.Socket.m_activeEvents</span></span></a></code>.</p>
+<p class="rubric">See also:</p>
+<p><code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-type-io-socket"><span class="std std-ref"><span class="pre">io.Socket</span></span></a></code></p>
+<div class="section" id="enum-values">
+<h3>Enum Values</h3>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-ioerror">
+<span id="index-1"></span><span></span><span class="n">IoError</span>
+</pre>
+<p>An IO error occured on the socket; detailed information about the error
+is available at <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-struct-member-io-socket-m-ioerror"><span class="std std-ref"><span class="pre">io.Socket.m_ioError</span></span></a></code>.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-incomingdata">
+<span id="index-2"></span><span></span><span class="n">IncomingData</span>
+</pre>
+<p>Incoming data is available on the socket; this data could be fetched
+with <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-read"><span class="std std-ref"><span class="pre">io.Socket.read</span></span></a></code> or <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-readdatagram"><span class="std std-ref"><span class="pre">io.Socket.readDatagram</span></span></a></code> methods.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-readbufferfull">
+<span id="index-3"></span><span></span><span class="n">ReadBufferFull</span>
+</pre>
+<p>Socket receive buffer is full.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-writebufferempty">
+<span id="index-4"></span><span></span><span class="n">WriteBufferEmpty</span>
+</pre>
+<p>Socket transmit buffer is empty.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-writebufferready">
+<span id="index-5"></span><span></span><span class="n">WriteBufferReady</span>
+</pre>
+<p>Socket transmit buffer is ready to accept more data; it’s OK to issue
+more <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-write"><span class="std std-ref"><span class="pre">io.Socket.write</span></span></a></code> or <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-writedatagram"><span class="std std-ref"><span class="pre">io.Socket.writeDatagram</span></span></a></code> requests.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-incomingconnection">
+<span id="index-6"></span><span></span><span class="n">IncomingConnection</span>
+</pre>
+<p>New incoming client connection is pending on the listening server
+socket. The new client can be accepted using <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-accept"><span class="std std-ref"><span class="pre">io.Socket.accept</span></span></a></code> method
+(to reject the connection you still have to accept it first, and then
+close it)</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-connected">
+<span id="index-7"></span><span></span><span class="n">Connected</span>
+</pre>
+<p>Connection established.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-disconnected">
+<span id="index-8"></span><span></span><span class="n">Disconnected</span>
+</pre>
+<p>Connection has been terminated by the remote node. If the remote node
+used <code class="docutils literal notranslate"><span class="pre">TCP</span></code> reset, then <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="#doxid-enum-member-io-socketevents-reset"><span class="std std-ref"><span class="pre">io.SocketEvents.Reset</span></span></a></code> will be set at the same
+time. Note that if connection was terminated by the local node(using
+<code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-close"><span class="std std-ref"><span class="pre">io.Socket.close</span></span></a></code>), <code class="docutils literal notranslate"><span class="pre">Disconnect</span></code> event is <strong>not</strong> fired.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-enum-member-io-socketevents-reset">
+<span id="index-9"></span><span></span><span class="n">Reset</span>
+</pre>
+<p>Connection has been abruptly reset by the remote node. Whenever this
+event is set, <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="#doxid-enum-member-io-socketevents-disconnected"><span class="std std-ref"><span class="pre">io.SocketEvents.Disconnected</span></span></a></code> is also set. Note that if
+connection was terminated by the local node(using <code class="doxyrest-cref docutils literal notranslate"><a class="reference internal" href="class_io_Socket.html#doxid-function-io-socket-close"><span class="std std-ref"><span class="pre">io.Socket.close</span></span></a></code>),
+<code class="docutils literal notranslate"><span class="pre">Disconnect</span></code> event is <strong>not</strong> fired.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="enum_io_SocketOptions.html" class="btn btn-neutral float-right" title="bitflag enum io.SocketOptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="enum_io_Protocol.html" class="btn btn-neutral float-left" title="enum io.Protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2012-2021, Tibbo Technology Inc.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

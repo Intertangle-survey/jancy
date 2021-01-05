@@ -1,0 +1,35 @@
+.. include:: def.rst
+.. index:: pair: group; Regular Expressions
+.. _doxid-group_rtl_regex:
+
+Regular Expressions
+===================
+
+.. toctree::
+	:hidden:
+
+	enum_jnc_RegexStateFlags.rst
+	struct_jnc_RegexMatch.rst
+	class_jnc_RegexDfa.rst
+	class_jnc_RegexState.rst
+
+This section describes facilities for the in-language regular expressions.
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	// enums
+
+	bitflag enum :ref:`jnc.RegexStateFlags<doxid-type_jnc_regexstateflags>`;
+
+	// structs
+
+	struct :ref:`jnc.RegexMatch<doxid-type_jnc_regexmatch>`;
+
+	// classes
+
+	class :ref:`jnc.RegexDfa<doxid-type_jnc_regexdfa>`;
+	class :ref:`jnc.RegexState<doxid-type_jnc_regexstate>`;
+

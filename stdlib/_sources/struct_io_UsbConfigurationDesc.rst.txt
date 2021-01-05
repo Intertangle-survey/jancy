@@ -1,0 +1,28 @@
+.. include:: def.rst
+.. index:: pair: struct; io.UsbConfigurationDesc
+.. _doxid-type_io_usbconfigurationdesc:
+
+struct io.UsbConfigurationDesc
+==============================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	struct UsbConfigurationDesc
+	{
+		// fields
+	
+		:ref:`io.UsbInterfaceDesc<doxid-type_io_usbinterfacedesc>` const* :target:`m_interfaceTable<doxid-struct_member_io_usbconfigurationdesc_m_interfacetable>`;
+		:ref:`size_t<doxid-typedef_size_t>` :target:`m_interfaceCount<doxid-struct_member_io_usbconfigurationdesc_m_interfacecount>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_configurationId<doxid-struct_member_io_usbconfigurationdesc_m_configurationid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_descriptionStringId<doxid-struct_member_io_usbconfigurationdesc_m_descriptionstringid>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_attributes<doxid-struct_member_io_usbconfigurationdesc_m_attributes>`;
+		:ref:`uint8_t<doxid-typedef_uint8_t>` :target:`m_maxPower<doxid-struct_member_io_usbconfigurationdesc_m_maxpower>`;
+	};

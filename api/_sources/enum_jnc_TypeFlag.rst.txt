@@ -1,0 +1,23 @@
+.. index:: pair: enum; jnc_TypeFlag
+.. _doxid-group__type_1ga0b9154297f9dcb9c0de015199ad34d9e:
+
+enum jnc_TypeFlag
+=================
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	#include <jnc_Type.h>
+
+	enum jnc_TypeFlag {
+	    :target:`jnc_TypeFlag_Named<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9ea7d28868a004eefe2a75f54340a7bf2a5>`     = 0x0100,
+	    :target:`jnc_TypeFlag_Pod<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9ea8657bad3c10cede8d873f50a3bc33b08>`       = 0x0200,
+	    :target:`jnc_TypeFlag_GcRoot<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9ea6093d190cbea9d7cf42c198b8306864b>`    = 0x0400,
+	    :target:`jnc_TypeFlag_StructRet<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9eaf256e5435b2e8e6b653d26172f48f934>` = 0x0800,
+	    :target:`jnc_TypeFlag_NoStack<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9ea9017e5525ee74c7985a98062fc3901c8>`   = 0x1000,
+	    :target:`jnc_TypeFlag_Dynamic<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9eaa232b556f95a8e5d475e999793af95c6>`   = 0x2000,
+	    :target:`jnc_TypeFlag_NoImports<doxid-group__type_1gga0b9154297f9dcb9c0de015199ad34d9ea53e984f6343edffa58b5415b50874279>` = 0x4000,
+	};
+

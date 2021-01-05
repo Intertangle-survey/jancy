@@ -1,0 +1,65 @@
+.. include:: def.rst
+.. index:: pair: enum; DeviceMonitorEvents
+.. _doxid-type_io_devicemonitorevents:
+
+bitflag enum io.DeviceMonitorEvents
+===================================
+
+Overview
+~~~~~~~~
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum DeviceMonitorEvents
+	{
+	    :ref:`IoError<doxid-enum_member_io_devicemonitorevents_ioerror>`,
+	    :ref:`IncomingData<doxid-enum_member_io_devicemonitorevents_incomingdata>`,
+	    :ref:`ReadBufferFull<doxid-enum_member_io_devicemonitorevents_readbufferfull>`,
+	};
+
+.. _details-type_io_devicemonitorevents:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; IoError
+.. _doxid-enum_member_io_devicemonitorevents_ioerror:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IoError
+
+An IO error occured on the device monitor; detailed information about
+the error is available at `io.DeviceMonitor.m_ioError`.
+
+.. index:: pair: enumvalue; IncomingData
+.. _doxid-enum_member_io_devicemonitorevents_incomingdata:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingData
+
+Incoming data is available on the device monitor; this data could be
+fetched with `io.DeviceMonitor.read`.
+
+.. index:: pair: enumvalue; ReadBufferFull
+.. _doxid-enum_member_io_devicemonitorevents_readbufferfull:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	ReadBufferFull
+
+Device monitor receive buffer is full.
+

@@ -1,0 +1,65 @@
+.. include:: def.rst
+.. index:: pair: class; std.RbTree
+.. _doxid-type_std_rbtree:
+
+class std.RbTree
+================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	import "std_RbTree.jnc"
+	
+	class RbTree
+	{
+		// fields
+	
+		:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* readonly :target:`m_head<doxid-struct_member_std_rbtree_m_head>`;
+		:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* readonly :target:`m_tail<doxid-struct_member_std_rbtree_m_tail>`;
+		:ref:`size_t<doxid-typedef_size_t>` readonly :target:`m_count<doxid-struct_member_std_rbtree_m_count>`;
+
+		// properties
+	
+		bool const property :target:`m_isEmpty<doxid-property_std_rbtree_m_isempty>`;
+
+		// construction
+	
+		:target:`construct<doxid-function_std_rbtree_construct>`(:ref:`std.CmpFunc<doxid-typedef_std_cmpfunc>` thin* cmpFunc = null);
+		:target:`destruct<doxid-function_std_rbtree_destruct>`();
+
+		// methods
+	
+		void :target:`clear<doxid-function_std_rbtree_clear>`();
+		:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* errorcode :target:`visit<doxid-function_std_rbtree_visit>`(variant key);
+		:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* :target:`find<doxid-function_std_rbtree_find>`(variant key) const;
+	
+		:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* :target:`find<doxid-function_std_rbtree_find_2>`(
+			variant key,
+			:ref:`std.BinTreeFindRelOp<doxid-type_std_bintreefindrelop>` relOp
+			) const;
+	
+		variant :target:`findValue<doxid-function_std_rbtree_findvalue>`(
+			variant key,
+			variant undefinedValue = null
+			) const;
+	
+		variant :target:`findValue<doxid-function_std_rbtree_findvalue_2>`(
+			variant key,
+			:ref:`std.BinTreeFindRelOp<doxid-type_std_bintreefindrelop>` relOp,
+			variant undefinedValue = null
+			) const;
+	
+		:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* errorcode :target:`add<doxid-function_std_rbtree_add>`(
+			variant key,
+			variant value
+			);
+	
+		void :target:`remove<doxid-function_std_rbtree_remove>`(:ref:`std.MapEntry<doxid-type_std_mapentry>` cmut* entry);
+		bool :target:`removeKey<doxid-function_std_rbtree_removekey>`(variant key);
+	};

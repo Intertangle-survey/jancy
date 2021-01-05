@@ -1,0 +1,151 @@
+.. include:: def.rst
+.. index:: pair: enum; SocketEvents
+.. _doxid-type_io_socketevents:
+
+bitflag enum io.SocketEvents
+============================
+
+Overview
+~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.Socket` object. The set of *active* events is accessible
+via `io.Socket.m_activeEvents`. :ref:`More...<details-type_io_socketevents>`
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum SocketEvents
+	{
+	    :ref:`IoError<doxid-enum_member_io_socketevents_ioerror>`,
+	    :ref:`IncomingData<doxid-enum_member_io_socketevents_incomingdata>`,
+	    :ref:`ReadBufferFull<doxid-enum_member_io_socketevents_readbufferfull>`,
+	    :ref:`WriteBufferEmpty<doxid-enum_member_io_socketevents_writebufferempty>`,
+	    :ref:`WriteBufferReady<doxid-enum_member_io_socketevents_writebufferready>`   = WriteBufferEmpty,
+	    :ref:`IncomingConnection<doxid-enum_member_io_socketevents_incomingconnection>`,
+	    :ref:`Connected<doxid-enum_member_io_socketevents_connected>`,
+	    :ref:`Disconnected<doxid-enum_member_io_socketevents_disconnected>`,
+	    :ref:`Reset<doxid-enum_member_io_socketevents_reset>`,
+	};
+
+.. _details-type_io_socketevents:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.Socket` object. The set of *active* events is accessible
+via `io.Socket.m_activeEvents`.
+
+
+
+.. rubric:: See also:
+
+`io.Socket`
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; IoError
+.. _doxid-enum_member_io_socketevents_ioerror:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IoError
+
+An IO error occured on the socket; detailed information about the error
+is available at `io.Socket.m_ioError`.
+
+.. index:: pair: enumvalue; IncomingData
+.. _doxid-enum_member_io_socketevents_incomingdata:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingData
+
+Incoming data is available on the socket; this data could be fetched
+with `io.Socket.read` or `io.Socket.readDatagram` methods.
+
+.. index:: pair: enumvalue; ReadBufferFull
+.. _doxid-enum_member_io_socketevents_readbufferfull:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	ReadBufferFull
+
+Socket receive buffer is full.
+
+.. index:: pair: enumvalue; WriteBufferEmpty
+.. _doxid-enum_member_io_socketevents_writebufferempty:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferEmpty
+
+Socket transmit buffer is empty.
+
+.. index:: pair: enumvalue; WriteBufferReady
+.. _doxid-enum_member_io_socketevents_writebufferready:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferReady
+
+Socket transmit buffer is ready to accept more data; it's OK to issue
+more `io.Socket.write` or `io.Socket.writeDatagram` requests.
+
+.. index:: pair: enumvalue; IncomingConnection
+.. _doxid-enum_member_io_socketevents_incomingconnection:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingConnection
+
+New incoming client connection is pending on the listening server
+socket. The new client can be accepted using `io.Socket.accept` method
+(to reject the connection you still have to accept it first, and then
+close it)
+
+.. index:: pair: enumvalue; Connected
+.. _doxid-enum_member_io_socketevents_connected:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	Connected
+
+Connection established.
+
+.. index:: pair: enumvalue; Disconnected
+.. _doxid-enum_member_io_socketevents_disconnected:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	Disconnected
+
+Connection has been terminated by the remote node. If the remote node
+used ``TCP`` reset, then `io.SocketEvents.Reset` will be set at the same
+time. Note that if connection was terminated by the local node(using
+`io.Socket.close`), ``Disconnect`` event is **not** fired.
+
+.. index:: pair: enumvalue; Reset
+.. _doxid-enum_member_io_socketevents_reset:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	Reset
+
+Connection has been abruptly reset by the remote node. Whenever this
+event is set, `io.SocketEvents.Disconnected` is also set. Note that if
+connection was terminated by the local node(using `io.Socket.close`),
+``Disconnect`` event is **not** fired.
+

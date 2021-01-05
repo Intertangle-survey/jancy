@@ -1,0 +1,22 @@
+.. include:: def.rst
+.. index:: pair: enum; UsbSpeed
+.. _doxid-type_io_usbspeed:
+
+enum io.UsbSpeed
+================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	enum UsbSpeed
+	{
+	    :target:`Unknown<doxid-enum_member_io_usbspeed_unknown>` = 0,
+	    :target:`Low<doxid-enum_member_io_usbspeed_low>`     = 1,
+	    :target:`Full<doxid-enum_member_io_usbspeed_full>`    = 2,
+	    :target:`High<doxid-enum_member_io_usbspeed_high>`    = 3,
+	    :target:`Super<doxid-enum_member_io_usbspeed_super>`   = 4,
+	};
+

@@ -1,0 +1,19 @@
+.. include:: def.rst
+.. index:: pair: enum; UsbEndpointOptions
+.. _doxid-type_io_usbendpointoptions:
+
+bitflag enum io.UsbEndpointOptions
+==================================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum UsbEndpointOptions
+	{
+	    :target:`KeepReadBlockSize<doxid-enum_member_io_usbendpointoptions_keepreadblocksize>`,
+	    :target:`KeepWriteBlockSize<doxid-enum_member_io_usbendpointoptions_keepwriteblocksize>`,
+	};
+

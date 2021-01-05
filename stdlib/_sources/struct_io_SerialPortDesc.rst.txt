@@ -1,0 +1,81 @@
+.. include:: def.rst
+.. index:: pair: struct; io.SerialPortDesc
+.. _doxid-type_io_serialportdesc:
+
+struct io.SerialPortDesc
+========================
+
+.. toctree::
+	:hidden:
+
+Overview
+~~~~~~~~
+
+This struct holds information about the serial port device. :ref:`More...<details-type_io_serialportdesc>`
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	import "io_base.jncx"
+	import "io_Serial.jnc"
+	
+	struct SerialPortDesc
+	{
+		// fields
+	
+		io.SerialPortDesc const* :ref:`m_next<doxid-struct_member_io_serialportdesc_m_next>`;
+		char const* :ref:`m_deviceName<doxid-struct_member_io_serialportdesc_m_devicename>`;
+		char const* :ref:`m_description<doxid-struct_member_io_serialportdesc_m_description>`;
+	};
+.. _details-type_io_serialportdesc:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This struct holds information about the serial port device.
+
+A list of serial port descriptions is returned by
+`io.createSerialPortDescList`.
+
+
+
+.. rubric:: See also:
+
+`io.createSerialPortDescList`
+
+Fields
+------
+
+.. index:: pair: variable; m_next
+.. _doxid-struct_member_io_serialportdesc_m_next:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	io.SerialPortDesc const* m_next
+
+Holds a pointer to the next serial port description or ``null`` if this
+is the last adapter.
+
+.. index:: pair: variable; m_deviceName
+.. _doxid-struct_member_io_serialportdesc_m_devicename:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	char const* m_deviceName
+
+Holds the serial port device name; use this name as ``name`` argument in
+`io.Serial.open` method.
+
+.. index:: pair: variable; m_description
+.. _doxid-struct_member_io_serialportdesc_m_description:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	char const* m_description
+
+Holds a human-readable description of the serial port.
+

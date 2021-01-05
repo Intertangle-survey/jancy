@@ -1,0 +1,107 @@
+.. include:: def.rst
+.. index:: pair: enum; SerialEvents
+.. _doxid-type_io_serialevents:
+
+bitflag enum io.SerialEvents
+============================
+
+Overview
+~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.Serial` object. The set of *active* events is accessible
+via `io.Serial.m_activeEvents`. :ref:`More...<details-type_io_serialevents>`
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum SerialEvents
+	{
+	    :ref:`IoError<doxid-enum_member_io_serialevents_ioerror>`,
+	    :ref:`IncomingData<doxid-enum_member_io_serialevents_incomingdata>`,
+	    :ref:`ReadBufferFull<doxid-enum_member_io_serialevents_readbufferfull>`,
+	    :ref:`WriteBufferEmpty<doxid-enum_member_io_serialevents_writebufferempty>`,
+	    :ref:`WriteBufferReady<doxid-enum_member_io_serialevents_writebufferready>` = WriteBufferEmpty,
+	    :target:`CtsOn<doxid-enum_member_io_serialevents_ctson>`,
+	    :target:`CtsOff<doxid-enum_member_io_serialevents_ctsoff>`,
+	    :target:`DsrOn<doxid-enum_member_io_serialevents_dsron>`,
+	    :target:`DsrOff<doxid-enum_member_io_serialevents_dsroff>`,
+	    :target:`RingOn<doxid-enum_member_io_serialevents_ringon>`,
+	    :target:`RingOff<doxid-enum_member_io_serialevents_ringoff>`,
+	    :target:`DcdOn<doxid-enum_member_io_serialevents_dcdon>`,
+	    :target:`DcdOff<doxid-enum_member_io_serialevents_dcdoff>`,
+	    :target:`LineError<doxid-enum_member_io_serialevents_lineerror>`,
+	};
+
+.. _details-type_io_serialevents:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.Serial` object. The set of *active* events is accessible
+via `io.Serial.m_activeEvents`.
+
+
+
+.. rubric:: See also:
+
+`io.Serial`
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; IoError
+.. _doxid-enum_member_io_serialevents_ioerror:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IoError
+
+An IO error occured on the serial port; detailed information about the
+error is available at `io.Serial.m_ioError`.
+
+.. index:: pair: enumvalue; IncomingData
+.. _doxid-enum_member_io_serialevents_incomingdata:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingData
+
+Incoming data is available on the serial port; this data could be
+fetched with `io.Serial.read` method.
+
+.. index:: pair: enumvalue; ReadBufferFull
+.. _doxid-enum_member_io_serialevents_readbufferfull:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	ReadBufferFull
+
+Serial port receive buffer is full; upcoming data may be dropped .
+
+.. index:: pair: enumvalue; WriteBufferEmpty
+.. _doxid-enum_member_io_serialevents_writebufferempty:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferEmpty
+
+Serial port transmit buffer is empty.
+
+.. index:: pair: enumvalue; WriteBufferReady
+.. _doxid-enum_member_io_serialevents_writebufferready:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferReady
+
+Serial port transmit buffer is ready to accept more data; it's OK to
+issue more `io.Serial.write` requests.
+

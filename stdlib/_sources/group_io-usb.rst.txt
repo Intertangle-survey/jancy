@@ -1,0 +1,69 @@
+.. include:: def.rst
+.. index:: pair: group; USB Communications
+.. _doxid-group_io_usb:
+
+USB Communications
+==================
+
+.. toctree::
+	:hidden:
+
+	enum_io_UsbClass.rst
+	enum_io_UsbEndpointEvents.rst
+	enum_io_UsbEndpointOptions.rst
+	enum_io_UsbIsoSyncType.rst
+	enum_io_UsbIsoUsage.rst
+	enum_io_UsbSpeed.rst
+	enum_io_UsbTransferType.rst
+	struct_io_UsbConfigurationDesc.rst
+	struct_io_UsbDeviceDesc.rst
+	struct_io_UsbEndpointDesc.rst
+	struct_io_UsbInterfaceDesc.rst
+	class_io_UsbDevice.rst
+	class_io_UsbEndpoint.rst
+	class_io_UsbInterface.rst
+
+This section describes types and facilities used for accessing USB devices with ``libusb``.
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	import "io_usb.jncx"
+	
+	// enums
+
+	enum :ref:`io.UsbClass<doxid-type_io_usbclass>`;
+	bitflag enum :ref:`io.UsbEndpointEvents<doxid-type_io_usbendpointevents>`;
+	bitflag enum :ref:`io.UsbEndpointOptions<doxid-type_io_usbendpointoptions>`;
+	enum :ref:`io.UsbIsoSyncType<doxid-type_io_usbisosynctype>`;
+	enum :ref:`io.UsbIsoUsage<doxid-type_io_usbisousage>`;
+	enum :ref:`io.UsbSpeed<doxid-type_io_usbspeed>`;
+	enum :ref:`io.UsbTransferType<doxid-type_io_usbtransfertype>`;
+
+	// structs
+
+	struct :ref:`io.UsbConfigurationDesc<doxid-type_io_usbconfigurationdesc>`;
+	struct :ref:`io.UsbDeviceDesc<doxid-type_io_usbdevicedesc>`;
+	struct :ref:`io.UsbEndpointDesc<doxid-type_io_usbendpointdesc>`;
+	struct :ref:`io.UsbInterfaceDesc<doxid-type_io_usbinterfacedesc>`;
+
+	// classes
+
+	class :ref:`io.UsbDevice<doxid-type_io_usbdevice>`;
+	class :ref:`io.UsbEndpoint<doxid-type_io_usbendpoint>`;
+	class :ref:`io.UsbInterface<doxid-type_io_usbinterface>`;
+
+	// global functions
+
+	char const* :target:`io.getUsbClassString<doxid-function_io_getusbclassstring>`(:ref:`io.UsbClass<doxid-type_io_usbclass>` cls);
+	char const* :target:`io.getUsbSpeedString<doxid-function_io_getusbspeedstring>`(:ref:`io.UsbSpeed<doxid-type_io_usbspeed>` speed);
+	:ref:`io.UsbDevice<doxid-type_io_usbdevice>`* const* errorcode :target:`io.createUsbDeviceArray<doxid-function_io_createusbdevicearray>`(:ref:`size_t<doxid-typedef_size_t>`* count = null);
+
+	:ref:`io.UsbDevice<doxid-type_io_usbdevice>`* errorcode :target:`io.openUsbDevice<doxid-function_io_openusbdevice>`(
+		:ref:`uint_t<doxid-typedef_uint_t>` vendorId,
+		:ref:`uint_t<doxid-typedef_uint_t>` productId
+		);
+
+	char const* :target:`io.getUsbTransferTypeString<doxid-function_io_getusbtransfertypestring>`(:ref:`io.UsbTransferType<doxid-type_io_usbtransfertype>` type);
+

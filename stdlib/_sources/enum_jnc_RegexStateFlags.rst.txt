@@ -1,0 +1,54 @@
+.. include:: def.rst
+.. index:: pair: enum; RegexStateFlags
+.. _doxid-type_jnc_regexstateflags:
+
+bitflag enum jnc.RegexStateFlags
+================================
+
+Overview
+~~~~~~~~
+
+This enum describes available option flags for `jnc.RegexState`. :ref:`More...<details-type_jnc_regexstateflags>`
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum RegexStateFlags
+	{
+	    :ref:`Incremental<doxid-enum_member_jnc_regexstateflags_incremental>`,
+	    :ref:`Lexer<doxid-enum_member_jnc_regexstateflags_lexer>`,
+	};
+
+.. _details-type_jnc_regexstateflags:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This enum describes available option flags for `jnc.RegexState`.
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; Incremental
+.. _doxid-enum_member_jnc_regexstateflags_incremental:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	Incremental
+
+Makes it possible to match input incrementally, i.e. chunk-by-chunk.
+
+.. index:: pair: enumvalue; Lexer
+.. _doxid-enum_member_jnc_regexstateflags_lexer:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	Lexer
+
+When a *final DFA state* is reached, it's condidered a successful match
+even when subsequent characters don't match the regular expression. This
+behavior is typically required in *lexers* -- hence, the name.
+

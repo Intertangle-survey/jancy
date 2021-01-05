@@ -1,0 +1,33 @@
+.. index:: pair: group; Attribute Block
+.. _doxid-group__attribute-block:
+
+Attribute Block
+===============
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	
+	// global functions
+
+	size_t
+	:target:`jnc_AttributeBlock_getAttributeCount<doxid-group__attribute-block_1ga43e1485e1ede51fcc3bc75b795208623>`(jnc_AttributeBlock* block);
+
+	jnc_Attribute*
+	:target:`jnc_AttributeBlock_getAttribute<doxid-group__attribute-block_1gaa73ad9739269b61e67c855b646756ac5>`(
+		jnc_AttributeBlock* block,
+		size_t index
+		);
+
+	jnc_Attribute*
+	:target:`jnc_AttributeBlock_findAttribute<doxid-group__attribute-block_1ga9a1a47ef58978ecdfa8cfb1f78fa390b>`(
+		jnc_AttributeBlock* block,
+		const char* name
+		);
+

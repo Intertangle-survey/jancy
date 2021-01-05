@@ -1,0 +1,79 @@
+.. include:: def.rst
+.. index:: pair: class; sys.RegKey
+.. _doxid-type_sys_regkey:
+
+class sys.RegKey
+================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	class RegKey
+	{
+		// construction
+	
+		:target:`construct<doxid-function_sys_regkey_construct>`();
+		:target:`destruct<doxid-function_sys_regkey_destruct>`();
+
+		// methods
+	
+		void :target:`close<doxid-function_sys_regkey_close>`();
+	
+		bool errorcode :target:`create<doxid-function_sys_regkey_create>`(
+			:ref:`sys.RegStdKey<doxid-type_sys_regstdkey>` parent,
+			char const* path
+			);
+	
+		bool errorcode :target:`create<doxid-function_sys_regkey_create_2>`(
+			sys.RegKey* parent,
+			char const* path
+			);
+	
+		bool errorcode :target:`open<doxid-function_sys_regkey_open>`(
+			:ref:`sys.RegStdKey<doxid-type_sys_regstdkey>` parent,
+			char const* path,
+			:ref:`sys.RegKeyAccess<doxid-type_sys_regkeyaccess>` access = RegKeyAccess.All
+			);
+	
+		bool errorcode :target:`open<doxid-function_sys_regkey_open_2>`(
+			sys.RegKey* parent,
+			char const* path,
+			:ref:`sys.RegKeyAccess<doxid-type_sys_regkeyaccess>` access = RegKeyAccess.All
+			);
+	
+		void const* errorcode :target:`read<doxid-function_sys_regkey_read>`(
+			char const* name,
+			:ref:`sys.RegValueType<doxid-type_sys_regvaluetype>`* type = null
+			);
+	
+		:ref:`uint32_t<doxid-typedef_uint32_t>` :target:`readDword<doxid-function_sys_regkey_readdword>`(char const* name);
+		char const* :target:`readString<doxid-function_sys_regkey_readstring>`(char const* name);
+	
+		bool errorcode :target:`write<doxid-function_sys_regkey_write>`(
+			char const* name,
+			:ref:`sys.RegValueType<doxid-type_sys_regvaluetype>` type,
+			void const* data,
+			:ref:`size_t<doxid-typedef_size_t>` size
+			);
+	
+		bool errorcode :target:`writeDword<doxid-function_sys_regkey_writedword>`(
+			char const* name,
+			:ref:`uint32_t<doxid-typedef_uint32_t>` value
+			);
+	
+		bool errorcode :target:`writeString<doxid-function_sys_regkey_writestring>`(
+			char const* name,
+			char const* value
+			);
+
+		// aliases
+	
+		alias :target:`dispose<doxid-alias_sys_regkey_dispose>` = close;
+	};

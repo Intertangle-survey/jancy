@@ -1,0 +1,102 @@
+.. include:: def.rst
+.. index:: pair: enum; UsbEndpointEvents
+.. _doxid-type_io_usbendpointevents:
+
+bitflag enum io.UsbEndpointEvents
+=================================
+
+Overview
+~~~~~~~~
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum UsbEndpointEvents
+	{
+	    :ref:`IoError<doxid-enum_member_io_usbendpointevents_ioerror>`,
+	    :ref:`IncomingData<doxid-enum_member_io_usbendpointevents_incomingdata>`,
+	    :ref:`ReadBufferFull<doxid-enum_member_io_usbendpointevents_readbufferfull>`,
+	    :ref:`WriteBufferEmpty<doxid-enum_member_io_usbendpointevents_writebufferempty>`,
+	    :ref:`WriteBufferReady<doxid-enum_member_io_usbendpointevents_writebufferready>` = WriteBufferEmpty,
+	    :ref:`WriteCompleted<doxid-enum_member_io_usbendpointevents_writecompleted>`,
+	};
+
+.. _details-type_io_usbendpointevents:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; IoError
+.. _doxid-enum_member_io_usbendpointevents_ioerror:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IoError
+
+An IO error occured on the USB endpoint; detailed information about the
+error is available at `io.UsbEndpoint.m_ioError`.
+
+.. index:: pair: enumvalue; IncomingData
+.. _doxid-enum_member_io_usbendpointevents_incomingdata:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingData
+
+More data is available on the USB endoint; this data could be fetched
+with `io.UsbEndpoint.read` method.
+
+.. index:: pair: enumvalue; ReadBufferFull
+.. _doxid-enum_member_io_usbendpointevents_readbufferfull:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	ReadBufferFull
+
+IN-endpoint receive buffer is full; upcoming data may be dropped
+(depending on the endpoint transfer type).
+
+.. index:: pair: enumvalue; WriteBufferEmpty
+.. _doxid-enum_member_io_usbendpointevents_writebufferempty:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferEmpty
+
+OUT-endpoint transmit buffer is empty.
+
+.. index:: pair: enumvalue; WriteBufferReady
+.. _doxid-enum_member_io_usbendpointevents_writebufferready:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferReady
+
+OUT-endpoint transmit buffer is ready to accept more data; it's OK to
+issue more `io.UsbEndpoint.write` requests.
+
+.. index:: pair: enumvalue; WriteCompleted
+.. _doxid-enum_member_io_usbendpointevents_writecompleted:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteCompleted
+
+OUT-endpoint has no active or pending USB transfers. Useful when you
+need to wait for all outbound transfers to complete before closing an
+endpoint.
+

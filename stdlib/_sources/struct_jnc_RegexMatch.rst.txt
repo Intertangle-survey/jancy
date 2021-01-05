@@ -1,0 +1,68 @@
+.. include:: def.rst
+.. index:: pair: struct; jnc.RegexMatch
+.. _doxid-type_jnc_regexmatch:
+
+struct jnc.RegexMatch
+=====================
+
+.. toctree::
+	:hidden:
+
+Overview
+~~~~~~~~
+
+This struct holds the information about matched lexeme or sub-lexeme. :ref:`More...<details-type_jnc_regexmatch>`
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	struct RegexMatch
+	{
+		// fields
+	
+		char const* :ref:`m_text<doxid-struct_member_jnc_regexmatch_m_text>`;
+		:ref:`size_t<doxid-typedef_size_t>` :ref:`m_offset<doxid-struct_member_jnc_regexmatch_m_offset>`;
+		:ref:`size_t<doxid-typedef_size_t>` :ref:`m_length<doxid-struct_member_jnc_regexmatch_m_length>`;
+	};
+.. _details-type_jnc_regexmatch:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This struct holds the information about matched lexeme or sub-lexeme.
+
+Fields
+------
+
+.. index:: pair: variable; m_text
+.. _doxid-struct_member_jnc_regexmatch_m_text:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	char const* m_text
+
+Holds a pointer to the match (guaranteed to be null-terminated).
+
+.. index:: pair: variable; m_offset
+.. _doxid-struct_member_jnc_regexmatch_m_offset:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`size_t<doxid-typedef_size_t>` m_offset
+
+Holds offset of the match relative the beginning of input stream.
+
+.. index:: pair: variable; m_length
+.. _doxid-struct_member_jnc_regexmatch_m_length:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`size_t<doxid-typedef_size_t>` m_length
+
+Holds length of the match.
+

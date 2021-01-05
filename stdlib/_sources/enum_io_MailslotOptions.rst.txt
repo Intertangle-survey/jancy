@@ -1,0 +1,18 @@
+.. include:: def.rst
+.. index:: pair: enum; MailslotOptions
+.. _doxid-type_io_mailslotoptions:
+
+bitflag enum io.MailslotOptions
+===============================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum MailslotOptions
+	{
+	    :target:`KeepReadBlockSize<doxid-enum_member_io_mailslotoptions_keepreadblocksize>`,
+	};
+

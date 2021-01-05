@@ -1,0 +1,20 @@
+.. include:: def.rst
+.. index:: pair: enum; UsbIsoUsage
+.. _doxid-type_io_usbisousage:
+
+enum io.UsbIsoUsage
+===================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	enum UsbIsoUsage
+	{
+	    :target:`Data<doxid-enum_member_io_usbisousage_data>`     = 0,
+	    :target:`Feedback<doxid-enum_member_io_usbisousage_feedback>` = 1,
+	    :target:`Implicit<doxid-enum_member_io_usbisousage_implicit>` = 2,
+	};
+

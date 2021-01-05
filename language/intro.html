@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction &mdash; Jancy Language Manual</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/doxyrest-pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/doxyrest-sphinx_rtd_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Jancy Language" href="language.html" />
+    <link rel="prev" title="Jancy Language Manual" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jancy Language Manual
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-principles">Design Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-notable-features">Other Notable Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="language.html">Jancy Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_compatibility.html">Compatibility with C</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jancy Language Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction</h1>
+<div class="section" id="motivation">
+<h2>Motivation</h2>
+<p>Why create yet another programming language? Like, there isn’t enough of them already?</p>
+<p>I have asked myself these questions hundreds of times, over and over again. I can name dozens of possible arguments against creating a new programming language. I understand all the difficulties a language creator is doomed to face before he can gather any meaningful number of users of the new language. And I still believe that the creation of Jancy was justified. The truth is, Jancy was not created just to fix the infamous fatal flaw of other languages (aka <strong>they didn’t write it</strong>). Of course, the passion to invent was a significant driving force, but there was <strong>practical</strong> reasoning besides that.</p>
+<p>During the development of a product called <a class="reference external" href="http://tibbo.com/ninja">IO Ninja</a> (a universal all-in-one low-level IO debugger) we were looking for a scripting language with the support for <strong>safe pointers</strong> and <strong>safe pointer arithmetics</strong>. We wanted to use scripting for adding new protocol analyzers and emulators, and the best way of parsing binary data is by a long shot C-structs and pointer arithmetics.</p>
+<p>After not finding such language, we basically had a choice: either we settle for some existing scripting language without safe pointer arithmetics (say, embedded Python) or create a new scripting language – tailor-suited for the <strong>binary data stream</strong> processing. Create it both for ourselves, and for other developers who could be in need for such a scripting language. Needless to say, we had chosen the latter option – otherwise, you would not be reading this manual.</p>
+<p>Of course, besides featuring safe pointers and safe pointer arithmetics, Jancy offers a long list of other useful but rarely found facilities. So let’s outline the distinguishing features of Jancy below. And for those of you wondering <strong>what’s in a name</strong>, Jancy is an acronym: [in-between] Java-and-C.</p>
+</div>
+<div class="section" id="design-principles">
+<h2>Design Principles</h2>
+<ul class="simple">
+<li>Object-oriented scripting language for IO and UI programming with C-family syntax</li>
+<li>ABI (application-binary-interface) compatibility with C</li>
+<li>Automatic memory management via accurate GC (garbage collection)</li>
+<li>LLVM (Low Level Virtual Machine) as a back-end</li>
+</ul>
+</div>
+<div class="section" id="key-features">
+<h2>Key Features</h2>
+<ul class="simple">
+<li>High level of ABI and source compatibility with C</li>
+<li>Safe pointers and pointer arithmetic</li>
+<li>Spreadsheet-like Reactive Programming</li>
+<li>Efficient regex-based switches for writing incremental lexers/scanners</li>
+<li>Dynamic structures with variable-length fields</li>
+<li>Dual error handling model which allows both throw-catch semantics and error code checks – with the same function!</li>
+</ul>
+</div>
+<div class="section" id="other-notable-features">
+<h2>Other Notable Features</h2>
+<ul class="simple">
+<li>Properties (the most comprehensive implementation thereof)</li>
+<li>Multicasts and events (including weak events, which do not require to unsubscribe)</li>
+<li>Scheduled function pointers</li>
+<li>Deterministic resource release</li>
+<li>Multiple inheritance</li>
+<li>Const-correctness</li>
+<li>Thread local storage</li>
+<li>Weak pointers (do not retain objects)</li>
+<li>Partial application for functions and properties</li>
+<li>Context-sensitive dual modifiers</li>
+<li>Bitflag enums</li>
+<li>Perl-style formatting</li>
+<li>Hexadimal, binary, raw and multi-line literals</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="language.html" class="btn btn-neutral float-right" title="Jancy Language" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Jancy Language Manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2012-2021, Tibbo Technology Inc.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

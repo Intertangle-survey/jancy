@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>enum jnc_UnOpKind &mdash; Jancy C API Reference</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/doxyrest-pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/doxyrest-sphinx_rtd_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/target-highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Property" href="group_property.html" />
+    <link rel="prev" title="enum jnc_BinOpKind" href="enum_jnc_BinOpKind.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Jancy C API Reference
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.8
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="group_base-def.html">Base Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_error-subsystem.html">Error Subsystem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="group_extension-lib-subsystem.html">Extension Libraries Subsystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="group_module-subsystem.html">Module Components</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="group_attribute-block.html">Attribute Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_function.html">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_module.html">Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_module-item.html">Module Item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_module-item-decl.html">Module Item Declaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_namespace.html">Namespace</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="group_operators.html">Operators</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="enum_jnc_BinOpKind.html">enum jnc_BinOpKind</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">enum jnc_UnOpKind</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="group_property.html">Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_type-subsystem.html">Type Subsystem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_unit.html">Unit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group_variable.html">Variable</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="group_runtime-subsystem.html">Runtime Subsystem</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="global.html">Global Namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Jancy C API Reference</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="group_module-subsystem.html">Module Components</a> &raquo;</li>
+        
+          <li><a href="group_operators.html">Operators</a> &raquo;</li>
+        
+      <li>enum jnc_UnOpKind</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enum-jnc-unopkind">
+<span id="doxid-group-operators-1gae611bfb523eb332069f2b7030accb665"></span><span id="index-0"></span><h1>enum jnc_UnOpKind</h1>
+<pre class="highlight doxyrest-overview-code-block literal-block">
+<span></span><span class="cp">#include</span> <span class="cpf">&lt;jnc_OpKind.h&gt;</span><span class="cp"></span>
+
+<span class="k">enum</span> <span class="n">jnc_UnOpKind</span> <span class="p">{</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665aa88749dfec83b0c95b0f2024963461df"><span></span><span class="n">jnc_UnOpKind_Undefined</span></span><span></span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a9942bb0c8147c7cf467760f874b6baee"><span></span><span class="n">jnc_UnOpKind_Plus</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665ac2ecbf98c05dd8c8a37435dbf4421e8f"><span></span><span class="n">jnc_UnOpKind_Minus</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a3635fa0ef0292c9c4b9f9447d09613d0"><span></span><span class="n">jnc_UnOpKind_BwNot</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a6212c04cf713b4cf24847e39d56bb24c"><span></span><span class="n">jnc_UnOpKind_Indir</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665adf53bad4e00ea01ef31ff5eb00a1914e"><span></span><span class="n">jnc_UnOpKind_Addr</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a622abfb2180dc9df22b46a34b282e009"><span></span><span class="n">jnc_UnOpKind_LogNot</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665acfb0f00d9dae526ee1710ddf08f27789"><span></span><span class="n">jnc_UnOpKind_PreInc</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a9af6cc982ac2a3e5cbfd65b81bd7a093"><span></span><span class="n">jnc_UnOpKind_PreDec</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665ac276ebe566dcc46e872e06fc5ee4ea84"><span></span><span class="n">jnc_UnOpKind_PostInc</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a0fd9a0a03f91aca78dd192023c7546d1"><span></span><span class="n">jnc_UnOpKind_PostDec</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a52b94226cc4dbab303fab929b53d8055"><span></span><span class="n">jnc_UnOpKind_Ptr</span></span><span></span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-operators-1ggae611bfb523eb332069f2b7030accb665a380a3f2b61ac2ff8cf29b771d206afed"><span></span><span class="n">jnc_UnOpKind__Count</span></span><span></span><span class="p">,</span>
+<span class="p">};</span>
+</pre>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="group_property.html" class="btn btn-neutral float-right" title="Property" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="enum_jnc_BinOpKind.html" class="btn btn-neutral float-left" title="enum jnc_BinOpKind" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2012-2021, Tibbo Technology Inc.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

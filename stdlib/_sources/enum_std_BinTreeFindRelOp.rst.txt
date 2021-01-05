@@ -1,0 +1,22 @@
+.. include:: def.rst
+.. index:: pair: enum; BinTreeFindRelOp
+.. _doxid-type_std_bintreefindrelop:
+
+enum std.BinTreeFindRelOp
+=========================
+
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	enum BinTreeFindRelOp
+	{
+	    :target:`Eq<doxid-enum_member_std_bintreefindrelop_eq>`,
+	    :target:`Lt<doxid-enum_member_std_bintreefindrelop_lt>`,
+	    :target:`Le<doxid-enum_member_std_bintreefindrelop_le>`,
+	    :target:`Gt<doxid-enum_member_std_bintreefindrelop_gt>`,
+	    :target:`Ge<doxid-enum_member_std_bintreefindrelop_ge>`,
+	};
+

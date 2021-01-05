@@ -1,0 +1,280 @@
+.. include:: def.rst
+.. index:: pair: class; jnc.RegexState
+.. _doxid-type_jnc_regexstate:
+
+class jnc.RegexState
+====================
+
+.. toctree::
+	:hidden:
+
+Overview
+~~~~~~~~
+
+This class holds the lexeme buffer and the state of DFA constructed
+from an ``reswitch`` statement. :ref:`More...<details-type_jnc_regexstate>`
+
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	class RegexState
+	{
+		// fields
+	
+		:ref:`jnc.RegexStateFlags<doxid-type_jnc_regexstateflags>` :ref:`m_flags<doxid-struct_member_jnc_regexstate_m_flags>`;
+		:ref:`size_t<doxid-typedef_size_t>` readonly :ref:`m_consumedLength<doxid-struct_member_jnc_regexstate_m_consumedlength>`;
+		:ref:`size_t<doxid-typedef_size_t>` readonly :ref:`m_replayLength<doxid-struct_member_jnc_regexstate_m_replaylength>`;
+		:ref:`jnc.RegexMatch<doxid-type_jnc_regexmatch>` readonly :ref:`m_match<doxid-struct_member_jnc_regexstate_m_match>`;
+		:ref:`jnc.RegexMatch<doxid-type_jnc_regexmatch>` const* readonly :ref:`m_subMatchArray<doxid-struct_member_jnc_regexstate_m_submatcharray>`;
+		:ref:`size_t<doxid-typedef_size_t>` readonly :ref:`m_subMatchCount<doxid-struct_member_jnc_regexstate_m_submatchcount>`;
+
+		// properties
+	
+		:ref:`size_t<doxid-typedef_size_t>` autoget property :ref:`m_matchLengthLimit<doxid-property_jnc_regexstate_m_matchlengthlimit>`;
+		:ref:`size_t<doxid-typedef_size_t>` autoget property :ref:`m_currentOffset<doxid-property_jnc_regexstate_m_currentoffset>`;
+
+		// construction
+	
+		:target:`construct<doxid-function_jnc_regexstate_construct>`(:ref:`jnc.RegexStateFlags<doxid-type_jnc_regexstateflags>` flags = 0);
+
+		// methods
+	
+		void :ref:`reset<doxid-function_jnc_regexstate_reset>`();
+	};
+.. _details-type_jnc_regexstate:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This class holds the lexeme buffer and the state of DFA constructed
+from an ``reswitch`` statement.
+
+Jancy ``reswitch`` statements allow for convenient creation of lexers and/or
+scanners.
+
+The idea is taken from well-known tools like *Lex*, *Flex*, *Ragel* etc.
+
+1. Define a list of recognized lexemes in the form of regular expressions.
+2. Specify which actions to execute when these lexemes are found in the
+   input stream.
+3. Jancy compiler automatically builds a DFA to recognize your language and
+   perform correspondig actions.
+
+To *execute* the resulting DFA you need a ``jnc.RegexState`` object -- it
+will hold the state of DFA and buffer matched lexemes. In its simplest form
+recognizer looks like this:
+
+.. ref-code-block::
+
+	jnc.RegexState state;
+	reswitch (state, p, length)
+	{
+	case "foo":
+		// ...
+		break;
+
+	case r"bar\(d+)":
+		print($"bar id: $(state.m_subMatchArray [0].m_text)\n");
+		break;
+
+	case r"\s+":
+		// ignore whitespace
+		break;
+
+	// ...
+	}
+
+To employ incremental recognition, you would want to create some kind of a
+*match* function and call it each time the next chunk of data becomes
+available:
+
+.. ref-code-block::
+
+	bool errorcode match(
+		jnc.RegexState* state,
+		const char* p,
+		size_t length
+		)
+	{
+		const char* end = p + length;
+
+		// post-condition loop allows passing 'null' as eof
+		do
+		{
+			reswitch (state, p, end - p)
+			{
+			case "foo":
+				// ...
+				break;
+
+			case r"bar\(d+)":
+				print($"bar id: $(state.m_subMatchArray [0].m_text)\n");
+				break;
+
+			case r"\s+":
+				// ignore whitespace
+				break;
+
+			// ...
+
+			default:
+				// we can get here for two reasons only:
+				//   1) mismatch
+				//   2) incremental recognition
+
+				if (!state.m_consumedLength)
+					return false;
+
+				assert(
+					(state.m_flags & jnc.RegexStateFlags.Incremental) &&
+					state.m_consumedLength == end - p);
+			}
+
+			p += state.m_consumedLength;
+		} while (p < end || state.m_replayLength);
+
+		return true;
+	}
+
+Recognizer must be aware of the fact it is being fed the date chunk-by-chunk
+(and not as the whole). You do so by setting the `jnc.RegexStateFlags.Incremental`
+bit in the `jnc.RegexState.m_flags` field:
+
+.. ref-code-block::
+
+	jnc.RegexState state(jnc.RegexStateFlags.Incremental);
+
+	// alternatively, assign:
+	// state.m_flags |= jnc.RegexStateFlags.Incremental;
+
+Now, whenever the next portion of data becomes available, simply call:
+
+.. ref-code-block::
+
+	size_t length = getNextPortionOfData(buffer);
+
+	match(state, buffer, length);
+
+Pass zero-sized buffer to trigger ``eof`` processing:
+
+.. ref-code-block::
+
+	match(state, null, 0);
+
+Fields
+------
+
+.. index:: pair: variable; m_flags
+.. _doxid-struct_member_jnc_regexstate_m_flags:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`jnc.RegexStateFlags<doxid-type_jnc_regexstateflags>` m_flags
+
+Holds the matching options. Normally, you set it during (or immediately
+after) the construction. But it's freely adjustible at any moment.
+
+.. index:: pair: variable; m_consumedLength
+.. _doxid-struct_member_jnc_regexstate_m_consumedlength:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`size_t<doxid-typedef_size_t>` readonly m_consumedLength
+
+Holds the actual length of data consumed during the last invokation of
+the DFA. When non-incremental recognizer discovers a match,
+``m_consumedLength`` will always be the same as ``m_match.m_length``. In
+case of a incremental recognizer, ``m_consumedLength`` may be smaller
+than ``m_match.m_length`` (the match may be spread across multiple
+blocks of input data).
+
+.. index:: pair: variable; m_replayLength
+.. _doxid-struct_member_jnc_regexstate_m_replaylength:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`size_t<doxid-typedef_size_t>` readonly m_replayLength
+
+Holds the length of buffered *replay data*. During incremental
+recognition, replay data will be processed prior to any user-supplied
+data.
+
+Replays can only happen after a successful match.
+
+.. index:: pair: variable; m_match
+.. _doxid-struct_member_jnc_regexstate_m_match:
+.. index:: pair: variable; m_subMatchArray
+.. _doxid-struct_member_jnc_regexstate_m_submatcharray:
+.. index:: pair: variable; m_subMatchCount
+.. _doxid-struct_member_jnc_regexstate_m_submatchcount:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`jnc.RegexMatch<doxid-type_jnc_regexmatch>` readonly m_match
+	:ref:`jnc.RegexMatch<doxid-type_jnc_regexmatch>` const* readonly m_subMatchArray
+	:ref:`size_t<doxid-typedef_size_t>` readonly m_subMatchCount
+
+These fields hold information about the matched lexeme and, possibly,
+sub-lexemes(if capturing regular expressions groups were used).
+
+These fields should only be accessed from within **action** inside
+``automaton`` function.
+
+Properties
+----------
+
+.. index:: pair: property; m_matchLengthLimit
+.. _doxid-property_jnc_regexstate_m_matchlengthlimit:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`size_t<doxid-typedef_size_t>` autoget property m_matchLengthLimit
+
+Holds the maximum buffer size for lexemes. Set before starting
+recognition.
+
+What happends when lexeme in the input stream does not fit inside
+the buffer, depends on the whether the captured part of lexeme *already*
+matches some rule. If yes, recognizer will execute corresponding action
+and then reset its state to initial value.
+
+If captured part of lexeme does not match any rules, ``write`` or
+``recognize`` will return error.
+
+.. index:: pair: property; m_currentOffset
+.. _doxid-property_jnc_regexstate_m_currentoffset:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	:ref:`size_t<doxid-typedef_size_t>` autoget property m_currentOffset
+
+Holds the current offset of recognizer.
+
+Could be adjusted manually. For example, you can adjust
+``m_currentOffset`` before starting recognition; when a lexeme is found,
+``m_lexemeOffset`` will account for the initial offset(offset relative
+the beginning of the stream plus initial offset set before starting
+recognition).
+
+Methods
+-------
+
+.. index:: pair: function; reset
+.. _doxid-function_jnc_regexstate_reset:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	void reset()
+
+Resets state of recognizer including all offsets and captured lexeme
+bytes.
+

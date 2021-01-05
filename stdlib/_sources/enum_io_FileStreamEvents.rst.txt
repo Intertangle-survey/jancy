@@ -1,0 +1,110 @@
+.. include:: def.rst
+.. index:: pair: enum; FileStreamEvents
+.. _doxid-type_io_filestreamevents:
+
+bitflag enum io.FileStreamEvents
+================================
+
+Overview
+~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.FileStream` object. The set of *active* events is accessible
+via `io.FileStream.m_activeEvents`. :ref:`More...<details-type_io_filestreamevents>`
+
+.. ref-code-block:: jancy
+	:class: doxyrest-overview-code-block
+
+	
+	bitflag enum FileStreamEvents
+	{
+	    :ref:`IoError<doxid-enum_member_io_filestreamevents_ioerror>`,
+	    :ref:`IncomingData<doxid-enum_member_io_filestreamevents_incomingdata>`,
+	    :ref:`ReadBufferFull<doxid-enum_member_io_filestreamevents_readbufferfull>`,
+	    :ref:`WriteBufferEmpty<doxid-enum_member_io_filestreamevents_writebufferempty>`,
+	    :ref:`WriteBufferReady<doxid-enum_member_io_filestreamevents_writebufferready>` = WriteBufferEmpty,
+	    :ref:`Eof<doxid-enum_member_io_filestreamevents_eof>`,
+	};
+
+.. _details-type_io_filestreamevents:
+
+Detailed Documentation
+~~~~~~~~~~~~~~~~~~~~~~
+
+This enumeration contains codes of all possible events that might
+happen on `io.FileStream` object. The set of *active* events is accessible
+via `io.FileStream.m_activeEvents`.
+
+
+
+.. rubric:: See also:
+
+`io.FileStream`
+
+Enum Values
+-----------
+
+.. index:: pair: enumvalue; IoError
+.. _doxid-enum_member_io_filestreamevents_ioerror:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IoError
+
+An IO error occured on the file stream; detailed information about the
+error is available at `io.FileStream.m_ioError`.
+
+.. index:: pair: enumvalue; IncomingData
+.. _doxid-enum_member_io_filestreamevents_incomingdata:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	IncomingData
+
+More data is available on the file stream; this data could be fetched
+with `io.FileStream.read` method.
+
+.. index:: pair: enumvalue; ReadBufferFull
+.. _doxid-enum_member_io_filestreamevents_readbufferfull:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	ReadBufferFull
+
+File stream receive buffer is full; upcoming data may be dropped
+(depending on the underlying device represented by the file).
+
+.. index:: pair: enumvalue; WriteBufferEmpty
+.. _doxid-enum_member_io_filestreamevents_writebufferempty:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferEmpty
+
+File stream transmit buffer is empty.
+
+.. index:: pair: enumvalue; WriteBufferReady
+.. _doxid-enum_member_io_filestreamevents_writebufferready:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	WriteBufferReady
+
+File stream transmit buffer is ready to accept more data; it's OK to
+issue more `io.FileStream.write` requests.
+
+.. index:: pair: enumvalue; Eof
+.. _doxid-enum_member_io_filestreamevents_eof:
+
+.. ref-code-block:: jancy
+	:class: doxyrest-title-code-block
+
+	Eof
+
+End-of-file was reached on the file stream.
+

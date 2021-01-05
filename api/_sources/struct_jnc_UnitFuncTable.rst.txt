@@ -1,0 +1,21 @@
+.. index:: pair: struct; jnc_UnitFuncTable
+.. _doxid-structjnc___unit_func_table:
+
+struct jnc_UnitFuncTable
+========================
+
+.. toctree::
+	:hidden:
+
+
+
+
+.. ref-code-block:: cpp
+	:class: doxyrest-overview-code-block
+
+	
+	struct jnc_UnitFuncTable {
+		// fields
+	
+		size_t :target:`m_size<doxid-structjnc___unit_func_table_1a3614a116c39536d37868ee1fc518f6e2>`;
+	};
